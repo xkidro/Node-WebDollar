@@ -5,7 +5,7 @@ while [[ true ]]; do
 	# Update remote
 	git remote update
 
-	#Start checking
+	# Start checking
 	UPSTREAM=${1:-'@{u}'}
 	LOCAL=$(git rev-parse @)
 	REMOTE=$(git rev-parse "$UPSTREAM")
