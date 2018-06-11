@@ -23,6 +23,13 @@ if [ -z $NOSSL ]; then
 
 fi
 
+# Kill everything if script exits
+trap "trap - SIGTERM && kill -- -$$ && pm2 stop npm" SIGINT SIGTERM EXIT
+
+# Start AutoUpdater
+
+sh autoupdater.sh &
+
 # Start PM2
 pm2 start npm -- run start
 sleep 1
